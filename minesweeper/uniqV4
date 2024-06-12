@@ -1,0 +1,60 @@
+#include "types.h"
+#include "stat.h"
+#include "fcntl.h"
+#include "user.h"
+
+int main (int argc, char *argv[]) {
+	//Declaration of Variables
+	int len=0, FD, RdFlag, i, iteration=0;
+	char Data[500];
+	char line[500];
+	char empty[500]; //Used to empty the line array
+	char prevLine[500];
+	//Step 1 opening the File in read Only Mode
+	FD = open(argv[1], O_RDONLY);
+	//If unable to open source file error is displayed
+	if (FD<0) {
+		printf(1, "Error in opening the file");
+		exit();
+	}
+	//Step 2 Reading the Data from the File
+	RdFlag = read(FD, Data, sizeof(Data));
+	//If unable to Read the Data from the file Error is displayed
+	if(RdFlag<0) {
+		printf(1, "Error in reading the data");
+		exit();
+	}
+	//Loop to Read the Data Character by Character
+	for (i=0;i<RdFlag;i++) {
+		if(Data[i]!='\n') { //Checks for not new line
+			line[len] = Data[i];
+			len++;
+		}
+		else if(Data[i]=='\n') { //Checks for New Line Character
+			if (iteration == 1) {
+				printf(1, "%s", line);
+				strcpy(prevLine, line);
+				iteration = 2;
+				strcpy(line, empty); //Emptying Line Array
+			}
+			else {
+				if (strcmp(prevLine, line) == 0) {
+					
+//continue;
+					strcpy(line, empty); //Emptying line array
+				}
+				else {
+					printf(1, "%s", line);
+					strcpy(prevLine, line);
+					strcpy(line, empty); //Emptying line array
+				}
+			}
+		}
+	}
+		
+	
+	//Closing the file
+	close(FD);
+	printf(1, "End of Program");
+	return 0;
+}

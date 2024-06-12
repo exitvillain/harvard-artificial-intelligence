@@ -1,0 +1,76 @@
+#include "types.h"
+#include "stat.h"
+#include "user.h"
+
+//I think I need to import some sys library
+//is it # <include <stdio.h>??
+
+char buf[512];
+char prevBuf[512];
+int iteration = 1;
+int n;
+
+void uniq(int fd, char *name)
+{
+    while ((n = read(fd, buf, sizeof(buf))) > 0)
+    {
+        //compare buf with prevBuf
+        //char buf[512];
+	printf(1,"It got here");
+
+        // first iteration:
+        if (iteration == 1)
+        {
+            // print buf
+            printf(1,"%s", buf);
+            // write buf to prevBuf
+            strcpy(prevBuf,buf);
+            //change iteration number
+            iteration = 2;
+        }
+
+        // all subsequent iterations:
+        else
+        {
+            // compare new buf with prevBuf
+            if (strcmp(prevBuf, buf) == 0)
+            {
+                // if same, continue
+		printf(1,"It got here");
+                continue;
+            }
+            // if different:
+            else
+            {
+                // write buf to prevBuf
+		printf(1,"It got here");
+                strcpy(prevBuf,buf);
+                //prevBuf = buf;
+
+                // print buf to screen
+                printf(1,"%s",prevBuf);
+            }
+        }
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    int fd;
+
+    if (argc <= 1)
+    {
+        uniq(0, "");
+        exit();
+    }
+    if ((fd = open(argv[1], 0)) < 0)
+    {
+        printf(1, "uniq: cannot open %s\n", argv[1]);
+        exit();
+    }
+
+    uniq(fd, argv[1]);
+    close(fd);
+
+    exit();
+}
