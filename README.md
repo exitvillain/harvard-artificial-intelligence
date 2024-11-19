@@ -21,7 +21,13 @@ The agent is the yellow circle, and it needs to get to the green square while av
 ![CS50AI](cs50AIpic5.png)
 
 ### Overfitting: 
+Overfitting is when a model fits the training data so well that it fails to generalize to other data sets. In this sense, loss functions are a double edged sword. In the example below, the loss function is minimized such that the loss is equal to 0. However, it is unlikely that it will fit new data well.
 ![CS50AI](cs50AIpic3.png)
+
+### and check out this covulutional nueral net!  
+This course does a great job of making neural nets easy to understand. They start you off with a small one and then introduce things like this:
+![CS50AI](cs50AIpic6.png)
+A convolutional neural network is a neural network that uses convolution, usually for analyzing images. It starts by applying filters that can help distill some features of the image using different kernels. These filters can be improved in the same way as other weights in the neural network, by adjusting their kernels based on the error of the output. Then, the resulting images are pooled, after which the pixels are fed to a traditional neural network as inputs (a process called flattening).
 
 
 
