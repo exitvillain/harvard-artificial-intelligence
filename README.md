@@ -15,3 +15,9 @@ Feel free to explore, and I’m always open to feedback or collaboration opportu
 
 Best,  
 **Daniel Gray**
+
+![CS50AI](cs50AIpic5.png)
+
+![CS50AI](cs50AIpic3.png)
+
+
