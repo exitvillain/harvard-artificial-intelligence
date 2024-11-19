@@ -15,13 +15,15 @@ Feel free to explore, and I’m always open to feedback or collaboration opportu
 
 Best,  
 **Daniel Gray**
-
-## Markov Decision Processes: 
-### The agent is the yellow circle, and it needs to get to the green square while avoiding the red squares. Every single square in the task is a state. Moving up, down, or to the sides is an action. The transition model gives us the new state after performing an action, and the reward function is what kind of feedback the agent gets. For example, if the agent chooses to go right, it will step on a red square and get negative feedback. This means that the agent will learn that, when in the state of being in the bottom-left square, it should avoid going right. This way, the agent will start exploring the space, learning which state-action pairs it should avoid. 
+## Just some highlights from the class. Which is free. Take it! 
+### Markov Decision Processes: 
+The agent is the yellow circle, and it needs to get to the green square while avoiding the red squares. Every single square in the task is a state. Moving up, down, or to the sides is an action. The transition model gives us the new state after performing an action, and the reward function is what kind of feedback the agent gets. For example, if the agent chooses to go right, it will step on a red square and get negative feedback. This means that the agent will learn that, when in the state of being in the bottom-left square, it should avoid going right. This way, the agent will start exploring the space, learning which state-action pairs it should avoid. 
 ![CS50AI](cs50AIpic5.png)
 
-## Overfitting: 
+### Overfitting: 
 ![CS50AI](cs50AIpic3.png)
+
+
 
 
 
